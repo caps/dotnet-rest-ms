@@ -27,6 +27,11 @@ namespace dotnet_rest_ms
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMetrics()
+                .AddJsonSerialization()
+                .AddHealthChecks()
+                .AddMetricsMiddleware();
+
             // Add framework services.
             services.AddMvc();
         }
@@ -38,6 +43,7 @@ namespace dotnet_rest_ms
             loggerFactory.AddDebug();
 
             app.UseMvc();
+            app.UseMetrics();
         }
     }
 }
