@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc;
 
 namespace dotnet_rest_ms
 {
@@ -33,7 +30,7 @@ namespace dotnet_rest_ms
                 .AddMetricsMiddleware();
 
             // Add framework services.
-            services.AddMvc();
+            services.AddMvc( options => options.AddMetricsResourceFilter());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
