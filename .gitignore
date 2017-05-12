@@ -1,3 +1,6 @@
 # DotNet stuff
 obj/
 bin/
+dotnet-rest-ms.csproj.user
+dotnet-rest-ms.sln
+dotnet-rest-ms.userprefs
