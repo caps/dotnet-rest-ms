@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
+using Hystrix.Dotnet.AspNetCore;
 
 namespace dotnet_rest_ms
 {
@@ -31,6 +32,9 @@ namespace dotnet_rest_ms
 
             // Add framework services.
             services.AddMvc( options => options.AddMetricsResourceFilter());
+
+            // Add Hystrix
+            services.AddHystrix();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +45,7 @@ namespace dotnet_rest_ms
 
             app.UseMvc();
             app.UseMetrics();
+            app.UseHystrixMetricsEndpoint("hystrix.stream");
         }
     }
 }

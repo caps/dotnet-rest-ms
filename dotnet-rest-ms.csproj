@@ -12,6 +12,7 @@
     <PackageReference Include="App.Metrics.Extensions.Mvc" Version="1.1.0" />
     <PackageReference Include="App.Metrics.Extensions.Middleware " Version="1.1.2" />
     <PackageReference Include="App.Metrics.Formatters.Json" Version="1.1.0" />
+    <PackageReference Include="Hystrix.DotNet.AspNetCore" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
