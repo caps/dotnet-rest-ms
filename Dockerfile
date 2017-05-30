@@ -1,10 +1,18 @@
-FROM microsoft/dotnet:1.1.1-runtime
+FROM microsoft/dotnet:1.1.1-sdk
 
-WORKDIR /app
+WORKDIR /build
 
-COPY /bin/Release/netcoreapp1.1 /app
-COPY appsettings.json /app/appsettings.json
+COPY ./src/DotnetMicroservice .
+
+RUN dotnet restore
+RUN dotnet publish -c Release
+
+RUN mkdir /app
+RUN cp -r bin/Release/netcoreapp1.1/* /app/
+RUN cp appsettings.json /app/
 
 EXPOSE 5000
 
-ENTRYPOINT dotnet publish/dotnet-ms.dll
+WORKDIR /app
+
+ENTRYPOINT dotnet dotnet-ms.dll
