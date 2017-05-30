@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Hystrix.Dotnet;
 
-namespace dotnet_rest_ms.Controllers
+namespace Caps.DotnetMicroservice.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller

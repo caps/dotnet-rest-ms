@@ -1,4 +1,4 @@
-# dotnet-rest-ms
+# dotnet-ms
 A .NET Core RESTful microservice running on Docker
 
 ## Dependencies ##
