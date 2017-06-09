@@ -7,3 +7,9 @@ A .NET Core RESTful microservice running on Docker
 
 ## To run on Docker ##
 `./build.sh`
+
+## Run w/ Prometheus and Grafana ##
+docker run -p 9090:9090 -v /prometheus.yml:/etc/prometheus/prometheus.yml --name prometheus prom/prometheus
+docker run -d -p 3000:3000 --link prometheus:prometheus --name grafana grafana/grafana 
+
+Login to Grafana using admin:admin, add Prometheus datasource with <ip_address>:9090, import Grafana dashboard with id 2204 (https://grafana.com/dashboards/2204) 

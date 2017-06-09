@@ -61,7 +61,7 @@ namespace Caps.DotnetMicroservice
                         globalTags.Add("app_version", envInfo.EntryAssemblyVersion);
                     });
                 })
-                .AddJsonSerialization()
+                .AddPrometheusProtobufSerialization()
                 .AddHealthChecks()
                 .AddMetricsMiddleware(Configuration.GetSection("Metrics"));
                 
