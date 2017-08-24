@@ -31,4 +31,4 @@ scrape_configs:
     scrape_interval: 5s   
 
     static_configs:
-      - targets: ['172.26.242.162:5000'] 
+      - targets: ['dotnet-ms:5000'] 
